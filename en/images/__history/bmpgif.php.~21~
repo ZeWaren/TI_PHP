@@ -1,0 +1,14 @@
+<?
+  $files1 = scandir('8xpkeys');
+  foreach ($files1 as $fn)
+    {
+      $imgi = imagecreatefromjpeg('8xpkeys/'.$fn);
+      $img = imagecreatetruecolor(imagesx($imgi), imagesy($imgi));
+//      $background = imagecolorallocate($img, 0, 0, 0);
+      imagegif($img, '8xpkeys/gifs/'.$fn.'.gif');
+      imagecopy ( $img, $imgi, 0, 0, 0, 0, imagesx($imgi), imagesy($imgi) );
+      imagedestroy($img);
+    }
+
+
+?>
